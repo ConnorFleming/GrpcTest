@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcProtosLib";
+
+package protosLib;
+
+service UserService {
+  rpc Get (GetUserRequest) returns (GetUserResponse);
+  rpc GetAll (GetAllRequest) returns (stream GetUserResponse);
+}
+
+message GetUserRequest{
+  int32 UserId = 1;
+}
+
+message GetAllRequest{
+
+}
+
+message GetUserResponse{
+  int32 UserId = 1;
+  string Username = 2;
+}
